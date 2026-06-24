@@ -1,0 +1,220 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserRole {
+  ADMIN
+  TECHNICIAN
+}
+
+enum MeasurementUnit {
+  UNIT
+  LITER
+  KILOGRAM
+}
+
+enum PestType {
+  COCKROACH
+  MOUSE
+  RAT
+  FLY
+  ANT
+  OTHER
+}
+
+enum InfestationLevel {
+  NONE
+  LOW
+  MEDIUM
+  HIGH
+}
+
+enum ServiceStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELED
+}
+
+enum PhotoType {
+  BEFORE
+  AFTER
+}
+
+enum ActivityType {
+  DISINFECTION
+  RODENT_CONTROL
+  PEST_CONTROL
+  IMMUNIZATION
+  TARPING
+  MINOR_REPAIRS
+  TANK_CLEANING_AND_DISINFECTION
+  OTHER
+}
+
+enum ApplicationMethod {
+  SPRAYING
+  FOGGING
+  THERMAL_FOGGING
+  BAITS
+  CAPTURE_TRAPS
+  TANK_LARVICIDE_APPLICATION
+  GEL
+  DUSTING
+  OTHER
+}
+
+enum TankLocation {
+  ELEVATED
+  GROUND_LEVEL
+}
+
+model User {
+  id             String   @id @default(uuid()) @db.Uuid
+  firstName      String
+  lastName       String
+  email          String   @unique
+  phone          String
+  documentNumber String   @unique
+  role           UserRole @default(TECHNICIAN)
+  passwordHash   String
+  salary         Decimal? @db.Decimal(10, 2)
+
+  services Service[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Item {
+  id                 String          @id @default(uuid()) @db.Uuid
+  name               String
+  lot                String
+  provider           String
+  serial             String?
+  registrationNumber String?
+  expirationDate     DateTime?       @db.Date
+  measurementUnit    MeasurementUnit @default(UNIT)
+  quantity           Decimal         @db.Decimal(10, 2)
+  price              Decimal         @db.Decimal(10, 2)
+
+  serviceItems ServiceItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([name])
+  @@index([expirationDate])
+}
+
+model Client {
+  id               String  @id @default(uuid()) @db.Uuid
+  companyName      String
+  address          String
+  NIT              String? @unique
+  phone            String
+  email            String? @unique
+  contactFirstName String?
+  contactLastName  String?
+
+  services Service[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Service {
+  id            String        @id @default(uuid()) @db.Uuid
+  serviceNumber Int           @unique @default(autoincrement())
+  status        ServiceStatus @default(SCHEDULED)
+
+  scheduledAt          DateTime
+  startedAt            DateTime?
+  completedAt          DateTime?
+  certificateExpiresAt DateTime? @db.Date
+
+  observations String?
+
+  clientId String @db.Uuid
+  client   Client @relation(fields: [clientId], references: [id])
+
+  technicians User[]
+  items       ServiceItem[]
+  activities  Activity[]
+  pests       ServicePest[]
+  photos      ServicePhoto[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clientId])
+  @@index([status])
+  @@index([scheduledAt])
+}
+
+model Activity {
+  id   String       @id @default(uuid()) @db.Uuid
+  type ActivityType
+
+  measurementUnit    MeasurementUnit?
+  tankCapacityLiters Int?
+  tankStructureType  String?
+  tankLocation       TankLocation?
+
+  notes String?
+
+  serviceId String  @db.Uuid
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([serviceId])
+}
+
+model ServiceItem {
+  id String @id @default(uuid()) @db.Uuid
+
+  itemId String @db.Uuid
+  item   Item   @relation(fields: [itemId], references: [id])
+
+  serviceId String  @db.Uuid
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  measurementUnit   MeasurementUnit
+  dosage            Decimal           @db.Decimal(10, 2)
+  applicationMethod ApplicationMethod
+
+  @@index([itemId])
+  @@index([serviceId])
+}
+
+model ServicePest {
+  id               String           @id @default(uuid()) @db.Uuid
+  type             PestType
+  infestationLevel InfestationLevel @default(NONE)
+
+  serviceId String  @db.Uuid
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([serviceId])
+}
+
+model ServicePhoto {
+  id   String    @id @default(uuid()) @db.Uuid
+  url  String
+  type PhotoType
+
+  serviceId String  @db.Uuid
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@index([serviceId])
+}
