@@ -16,6 +16,8 @@ import { HealthModule } from './health/health.module';
         PORT: Joi.number().port().default('3001'),
 
         DATABASE_URL: Joi.string().required(),
+
+        FRONTEND_URL: Joi.string().uri().required(),
       })
     }),
     PrismaModule,
