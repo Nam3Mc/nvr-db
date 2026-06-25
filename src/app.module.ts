@@ -5,6 +5,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { HealthModule } from './health/health.module';
 import { UserModule } from './user/user.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -26,12 +27,16 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
         CLOUDINARY_API_SECRET: Joi.string().required(),
         CLOUDINARY_BASE_FOLDER: Joi.string().required(),
 
+        JWT_SECRET: Joi.string().min(32).required(),
+        JWT_EXPIRES_IN: Joi.number().required(),
+
       })
     }),
     PrismaModule,
     HealthModule,
     UserModule,
     CloudinaryModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],

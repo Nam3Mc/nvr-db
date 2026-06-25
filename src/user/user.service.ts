@@ -286,4 +286,20 @@ export class UserService {
     });
   }
 
+  async findByEmailForAuth(email: string) {
+    return this.prisma.user.findUnique({
+      where: { email },
+      select: {
+        id: true,
+        email: true,
+        passwordHash: true,
+        role: true,
+        isActive: true,
+        firstName: true,
+        lastName: true,
+        profilePhotoUrl: true,
+      },
+    });
+  }
+
 }

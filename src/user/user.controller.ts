@@ -10,8 +10,10 @@ import {
     ParseFilePipe,
     UploadedFile,
     UseInterceptors,
+    UseGuards,
 } from '@nestjs/common';
 import {
+    ApiBearerAuth,
     ApiBody,
     ApiConsumes,
     ApiCreatedResponse,
@@ -30,8 +32,15 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { FILE } from 'dns';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
+import { RoleGuard } from 'src/auth/guards/roles.guard';
+import { Roles } from 'src/auth/decorator/roles.decorator';
+import { UserRole } from 'generated/prisma/enums';
 
 @ApiTags('User')
+@ApiBearerAuth()
+@UseGuards(JwtAuthGuard, RoleGuard)
+@Roles(UserRole.ADMIN)
 @Controller('user')
 export class UserController {
     constructor( private readonly userService: UserService) {}
