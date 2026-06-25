@@ -44,6 +44,9 @@ export type UserMinAggregateOutputType = {
   role: $Enums.UserRole | null
   passwordHash: string | null
   salary: runtime.Decimal | null
+  isActive: boolean | null
+  profilePhotoUrl: string | null
+  profilePhotoPublicId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -58,6 +61,9 @@ export type UserMaxAggregateOutputType = {
   role: $Enums.UserRole | null
   passwordHash: string | null
   salary: runtime.Decimal | null
+  isActive: boolean | null
+  profilePhotoUrl: string | null
+  profilePhotoPublicId: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -72,6 +78,9 @@ export type UserCountAggregateOutputType = {
   role: number
   passwordHash: number
   salary: number
+  isActive: number
+  profilePhotoUrl: number
+  profilePhotoPublicId: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -96,6 +105,9 @@ export type UserMinAggregateInputType = {
   role?: true
   passwordHash?: true
   salary?: true
+  isActive?: true
+  profilePhotoUrl?: true
+  profilePhotoPublicId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -110,6 +122,9 @@ export type UserMaxAggregateInputType = {
   role?: true
   passwordHash?: true
   salary?: true
+  isActive?: true
+  profilePhotoUrl?: true
+  profilePhotoPublicId?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -124,6 +139,9 @@ export type UserCountAggregateInputType = {
   role?: true
   passwordHash?: true
   salary?: true
+  isActive?: true
+  profilePhotoUrl?: true
+  profilePhotoPublicId?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -225,6 +243,9 @@ export type UserGroupByOutputType = {
   role: $Enums.UserRole
   passwordHash: string
   salary: runtime.Decimal | null
+  isActive: boolean
+  profilePhotoUrl: string | null
+  profilePhotoPublicId: string | null
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -262,6 +283,9 @@ export type UserWhereInput = {
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
   passwordHash?: Prisma.StringFilter<"User"> | string
   salary?: Prisma.DecimalNullableFilter<"User"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFilter<"User"> | boolean
+  profilePhotoUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   services?: Prisma.ServiceListRelationFilter
@@ -277,6 +301,9 @@ export type UserOrderByWithRelationInput = {
   role?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
   salary?: Prisma.SortOrderInput | Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   services?: Prisma.ServiceOrderByRelationAggregateInput
@@ -295,6 +322,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
   passwordHash?: Prisma.StringFilter<"User"> | string
   salary?: Prisma.DecimalNullableFilter<"User"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFilter<"User"> | boolean
+  profilePhotoUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   services?: Prisma.ServiceListRelationFilter
@@ -310,6 +340,9 @@ export type UserOrderByWithAggregationInput = {
   role?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
   salary?: Prisma.SortOrderInput | Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -332,6 +365,9 @@ export type UserScalarWhereWithAggregatesInput = {
   role?: Prisma.EnumUserRoleWithAggregatesFilter<"User"> | $Enums.UserRole
   passwordHash?: Prisma.StringWithAggregatesFilter<"User"> | string
   salary?: Prisma.DecimalNullableWithAggregatesFilter<"User"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
+  profilePhotoUrl?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -346,6 +382,9 @@ export type UserCreateInput = {
   role?: $Enums.UserRole
   passwordHash: string
   salary?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: boolean
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   services?: Prisma.ServiceCreateNestedManyWithoutTechniciansInput
@@ -361,6 +400,9 @@ export type UserUncheckedCreateInput = {
   role?: $Enums.UserRole
   passwordHash: string
   salary?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: boolean
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   services?: Prisma.ServiceUncheckedCreateNestedManyWithoutTechniciansInput
@@ -376,6 +418,9 @@ export type UserUpdateInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   services?: Prisma.ServiceUpdateManyWithoutTechniciansNestedInput
@@ -391,6 +436,9 @@ export type UserUncheckedUpdateInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   services?: Prisma.ServiceUncheckedUpdateManyWithoutTechniciansNestedInput
@@ -406,6 +454,9 @@ export type UserCreateManyInput = {
   role?: $Enums.UserRole
   passwordHash: string
   salary?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: boolean
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -420,6 +471,9 @@ export type UserUpdateManyMutationInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -434,6 +488,9 @@ export type UserUncheckedUpdateManyInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -448,6 +505,9 @@ export type UserCountOrderByAggregateInput = {
   role?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
   salary?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -466,6 +526,9 @@ export type UserMaxOrderByAggregateInput = {
   role?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
   salary?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -480,6 +543,9 @@ export type UserMinOrderByAggregateInput = {
   role?: Prisma.SortOrder
   passwordHash?: Prisma.SortOrder
   salary?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
+  profilePhotoUrl?: Prisma.SortOrder
+  profilePhotoPublicId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -512,6 +578,14 @@ export type NullableDecimalFieldUpdateOperationsInput = {
   decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string
   multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
+}
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -566,6 +640,9 @@ export type UserCreateWithoutServicesInput = {
   role?: $Enums.UserRole
   passwordHash: string
   salary?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: boolean
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -580,6 +657,9 @@ export type UserUncheckedCreateWithoutServicesInput = {
   role?: $Enums.UserRole
   passwordHash: string
   salary?: runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: boolean
+  profilePhotoUrl?: string | null
+  profilePhotoPublicId?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -618,6 +698,9 @@ export type UserScalarWhereInput = {
   role?: Prisma.EnumUserRoleFilter<"User"> | $Enums.UserRole
   passwordHash?: Prisma.StringFilter<"User"> | string
   salary?: Prisma.DecimalNullableFilter<"User"> | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFilter<"User"> | boolean
+  profilePhotoUrl?: Prisma.StringNullableFilter<"User"> | string | null
+  profilePhotoPublicId?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
 }
@@ -632,6 +715,9 @@ export type UserUpdateWithoutServicesInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -646,6 +732,9 @@ export type UserUncheckedUpdateWithoutServicesInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -660,6 +749,9 @@ export type UserUncheckedUpdateManyWithoutServicesInput = {
   role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
   passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
   salary?: Prisma.NullableDecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string | null
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  profilePhotoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profilePhotoPublicId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -705,6 +797,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   role?: boolean
   passwordHash?: boolean
   salary?: boolean
+  isActive?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   services?: boolean | Prisma.User$servicesArgs<ExtArgs>
@@ -721,6 +816,9 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   role?: boolean
   passwordHash?: boolean
   salary?: boolean
+  isActive?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -735,6 +833,9 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   role?: boolean
   passwordHash?: boolean
   salary?: boolean
+  isActive?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -749,11 +850,14 @@ export type UserSelectScalar = {
   role?: boolean
   passwordHash?: boolean
   salary?: boolean
+  isActive?: boolean
+  profilePhotoUrl?: boolean
+  profilePhotoPublicId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phone" | "documentNumber" | "role" | "passwordHash" | "salary" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phone" | "documentNumber" | "role" | "passwordHash" | "salary" | "isActive" | "profilePhotoUrl" | "profilePhotoPublicId" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   services?: boolean | Prisma.User$servicesArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -776,6 +880,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     role: $Enums.UserRole
     passwordHash: string
     salary: runtime.Decimal | null
+    isActive: boolean
+    profilePhotoUrl: string | null
+    profilePhotoPublicId: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -1211,6 +1318,9 @@ export interface UserFieldRefs {
   readonly role: Prisma.FieldRef<"User", 'UserRole'>
   readonly passwordHash: Prisma.FieldRef<"User", 'String'>
   readonly salary: Prisma.FieldRef<"User", 'Decimal'>
+  readonly isActive: Prisma.FieldRef<"User", 'Boolean'>
+  readonly profilePhotoUrl: Prisma.FieldRef<"User", 'String'>
+  readonly profilePhotoPublicId: Prisma.FieldRef<"User", 'String'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
