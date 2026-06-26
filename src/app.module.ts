@@ -6,6 +6,13 @@ import { HealthModule } from './health/health.module';
 import { UserModule } from './user/user.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { AuthModule } from './auth/auth.module';
+import { ClientsModule } from './clients/clients.module';
+import { ItemsModule } from './items/items.module';
+import { ServicePestsModule } from './service-pests/service-pests.module';
+import { ServicePhotosModule } from './service-photos/service-photos.module';
+import { ServiceItemsModule } from './service-items/service-items.module';
+import { ServicesModule } from './services/services.module';
+import { ActivitiesModule } from './activities/activities.module';
 
 @Module({
   imports: [
@@ -37,6 +44,13 @@ import { AuthModule } from './auth/auth.module';
     UserModule,
     CloudinaryModule,
     AuthModule,
+    ClientsModule,
+    ItemsModule,
+    ServicePestsModule,
+    ServicePhotosModule,
+    ServiceItemsModule,
+    ServicesModule,
+    ActivitiesModule,
   ],
   controllers: [],
   providers: [],

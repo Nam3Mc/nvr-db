@@ -106,6 +106,7 @@ model Item {
   measurementUnit    MeasurementUnit @default(UNIT)
   quantity           Decimal         @db.Decimal(10, 2)
   price              Decimal         @db.Decimal(10, 2)
+  isActive           Boolean         @default(true)
 
   serviceItems ServiceItem[]
 
@@ -125,6 +126,7 @@ model Client {
   email            String? @unique
   contactFirstName String?
   contactLastName  String?
+  isActive         Boolean @default(true)
 
   services Service[]
 
@@ -211,9 +213,10 @@ model ServicePest {
 }
 
 model ServicePhoto {
-  id   String    @id @default(uuid()) @db.Uuid
-  url  String
-  type PhotoType
+  id       String    @id @default(uuid()) @db.Uuid
+  Url      String
+  PublicId String
+  type     PhotoType
 
   serviceId String  @db.Uuid
   service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)

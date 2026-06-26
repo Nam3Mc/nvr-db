@@ -47,6 +47,7 @@ export type ItemMinAggregateOutputType = {
   measurementUnit: $Enums.MeasurementUnit | null
   quantity: runtime.Decimal | null
   price: runtime.Decimal | null
+  isActive: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -62,6 +63,7 @@ export type ItemMaxAggregateOutputType = {
   measurementUnit: $Enums.MeasurementUnit | null
   quantity: runtime.Decimal | null
   price: runtime.Decimal | null
+  isActive: boolean | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -77,6 +79,7 @@ export type ItemCountAggregateOutputType = {
   measurementUnit: number
   quantity: number
   price: number
+  isActive: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -104,6 +107,7 @@ export type ItemMinAggregateInputType = {
   measurementUnit?: true
   quantity?: true
   price?: true
+  isActive?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -119,6 +123,7 @@ export type ItemMaxAggregateInputType = {
   measurementUnit?: true
   quantity?: true
   price?: true
+  isActive?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -134,6 +139,7 @@ export type ItemCountAggregateInputType = {
   measurementUnit?: true
   quantity?: true
   price?: true
+  isActive?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -236,6 +242,7 @@ export type ItemGroupByOutputType = {
   measurementUnit: $Enums.MeasurementUnit
   quantity: runtime.Decimal
   price: runtime.Decimal
+  isActive: boolean
   createdAt: Date
   updatedAt: Date
   _count: ItemCountAggregateOutputType | null
@@ -274,6 +281,7 @@ export type ItemWhereInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFilter<"Item"> | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFilter<"Item"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFilter<"Item"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFilter<"Item"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   serviceItems?: Prisma.ServiceItemListRelationFilter
@@ -290,6 +298,7 @@ export type ItemOrderByWithRelationInput = {
   measurementUnit?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   serviceItems?: Prisma.ServiceItemOrderByRelationAggregateInput
@@ -309,6 +318,7 @@ export type ItemWhereUniqueInput = Prisma.AtLeast<{
   measurementUnit?: Prisma.EnumMeasurementUnitFilter<"Item"> | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFilter<"Item"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFilter<"Item"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFilter<"Item"> | boolean
   createdAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Item"> | Date | string
   serviceItems?: Prisma.ServiceItemListRelationFilter
@@ -325,6 +335,7 @@ export type ItemOrderByWithAggregationInput = {
   measurementUnit?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ItemCountOrderByAggregateInput
@@ -348,6 +359,7 @@ export type ItemScalarWhereWithAggregatesInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitWithAggregatesFilter<"Item"> | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalWithAggregatesFilter<"Item"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalWithAggregatesFilter<"Item"> | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolWithAggregatesFilter<"Item"> | boolean
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Item"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Item"> | Date | string
 }
@@ -363,6 +375,7 @@ export type ItemCreateInput = {
   measurementUnit?: $Enums.MeasurementUnit
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   serviceItems?: Prisma.ServiceItemCreateNestedManyWithoutItemInput
@@ -379,6 +392,7 @@ export type ItemUncheckedCreateInput = {
   measurementUnit?: $Enums.MeasurementUnit
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
   serviceItems?: Prisma.ServiceItemUncheckedCreateNestedManyWithoutItemInput
@@ -395,6 +409,7 @@ export type ItemUpdateInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFieldUpdateOperationsInput | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceItems?: Prisma.ServiceItemUpdateManyWithoutItemNestedInput
@@ -411,6 +426,7 @@ export type ItemUncheckedUpdateInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFieldUpdateOperationsInput | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   serviceItems?: Prisma.ServiceItemUncheckedUpdateManyWithoutItemNestedInput
@@ -427,6 +443,7 @@ export type ItemCreateManyInput = {
   measurementUnit?: $Enums.MeasurementUnit
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -442,6 +459,7 @@ export type ItemUpdateManyMutationInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFieldUpdateOperationsInput | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -457,6 +475,7 @@ export type ItemUncheckedUpdateManyInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFieldUpdateOperationsInput | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -472,6 +491,7 @@ export type ItemCountOrderByAggregateInput = {
   measurementUnit?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -492,6 +512,7 @@ export type ItemMaxOrderByAggregateInput = {
   measurementUnit?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -507,6 +528,7 @@ export type ItemMinOrderByAggregateInput = {
   measurementUnit?: Prisma.SortOrder
   quantity?: Prisma.SortOrder
   price?: Prisma.SortOrder
+  isActive?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -562,6 +584,7 @@ export type ItemCreateWithoutServiceItemsInput = {
   measurementUnit?: $Enums.MeasurementUnit
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -577,6 +600,7 @@ export type ItemUncheckedCreateWithoutServiceItemsInput = {
   measurementUnit?: $Enums.MeasurementUnit
   quantity: runtime.Decimal | runtime.DecimalJsLike | number | string
   price: runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -608,6 +632,7 @@ export type ItemUpdateWithoutServiceItemsInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFieldUpdateOperationsInput | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -623,6 +648,7 @@ export type ItemUncheckedUpdateWithoutServiceItemsInput = {
   measurementUnit?: Prisma.EnumMeasurementUnitFieldUpdateOperationsInput | $Enums.MeasurementUnit
   quantity?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   price?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -669,6 +695,7 @@ export type ItemSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   measurementUnit?: boolean
   quantity?: boolean
   price?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   serviceItems?: boolean | Prisma.Item$serviceItemsArgs<ExtArgs>
@@ -686,6 +713,7 @@ export type ItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   measurementUnit?: boolean
   quantity?: boolean
   price?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["item"]>
@@ -701,6 +729,7 @@ export type ItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   measurementUnit?: boolean
   quantity?: boolean
   price?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["item"]>
@@ -716,11 +745,12 @@ export type ItemSelectScalar = {
   measurementUnit?: boolean
   quantity?: boolean
   price?: boolean
+  isActive?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "lot" | "provider" | "serial" | "registrationNumber" | "expirationDate" | "measurementUnit" | "quantity" | "price" | "createdAt" | "updatedAt", ExtArgs["result"]["item"]>
+export type ItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "lot" | "provider" | "serial" | "registrationNumber" | "expirationDate" | "measurementUnit" | "quantity" | "price" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["item"]>
 export type ItemInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   serviceItems?: boolean | Prisma.Item$serviceItemsArgs<ExtArgs>
   _count?: boolean | Prisma.ItemCountOutputTypeDefaultArgs<ExtArgs>
@@ -744,6 +774,7 @@ export type $ItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     measurementUnit: $Enums.MeasurementUnit
     quantity: runtime.Decimal
     price: runtime.Decimal
+    isActive: boolean
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["item"]>
@@ -1180,6 +1211,7 @@ export interface ItemFieldRefs {
   readonly measurementUnit: Prisma.FieldRef<"Item", 'MeasurementUnit'>
   readonly quantity: Prisma.FieldRef<"Item", 'Decimal'>
   readonly price: Prisma.FieldRef<"Item", 'Decimal'>
+  readonly isActive: Prisma.FieldRef<"Item", 'Boolean'>
   readonly createdAt: Prisma.FieldRef<"Item", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Item", 'DateTime'>
 }

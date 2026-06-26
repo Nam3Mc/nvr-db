@@ -1073,6 +1073,7 @@ export const ItemScalarFieldEnum = {
   measurementUnit: 'measurementUnit',
   quantity: 'quantity',
   price: 'price',
+  isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1089,6 +1090,7 @@ export const ClientScalarFieldEnum = {
   email: 'email',
   contactFirstName: 'contactFirstName',
   contactLastName: 'contactLastName',
+  isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1153,7 +1155,8 @@ export type ServicePestScalarFieldEnum = (typeof ServicePestScalarFieldEnum)[key
 
 export const ServicePhotoScalarFieldEnum = {
   id: 'id',
-  url: 'url',
+  Url: 'Url',
+  PublicId: 'PublicId',
   type: 'type',
   serviceId: 'serviceId',
   createdAt: 'createdAt'
