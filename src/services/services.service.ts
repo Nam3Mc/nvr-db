@@ -112,7 +112,35 @@ export class ServicesService {
     }
 
     async allServices() {
-        return this.prisma.service.findMany();
+        return this.prisma.service.findMany({
+            select: {
+                id: true,
+                serviceNumber: true,
+                status: true,
+                scheduledAt: true,
+                notes: true,
+                servicePrice: true,
+                clientId: true,
+                client: {
+                    select: {
+                        companyName: true,
+                        NIT: true,
+                        address: true,
+                        phone: true,
+                    }
+                },
+                technicians: {
+                    select: {
+                        id: true,
+                        firstName: true,
+                        lastName:true,
+                        phone: true,
+                    }
+                },
+                createdAt: true,
+                photos: true,
+            }
+        });
     }
 
     async completeService(serviceId: string, conpleteServiceDto: CompleteServiceDto) {

@@ -11,18 +11,19 @@ export class ServicePhotosService {
     ) {}
 
     async uploadBeforePhotos(serviceId: string, files: Express.Multer.File[]) {
-        if (!files || files.length === 0) {
+        if (!files) {
             throw new BadRequestException('No photo was found');
         }
+        // console.log(serviceId)
         let uploadedPhotosData = [];
         const folder = this.cloudinaryService.getFolderPath(
             'service',
-            'service-photos'
+            'service-photos',
         )
         try {
-            let photoNo = 1
-            const uploadPromises = await files.map(async (file) => {
-                const publicId = `photo${photoNo}$-{serviceId}`;
+            const uploadPromises = await files.map(async (file, index) => {
+                const photoNo = index + 1
+                const publicId = `photo${photoNo}-${serviceId}`;
                 const cloudinaryResult = await this.cloudinaryService.uploadImage(
                     file,
                     {
@@ -30,17 +31,22 @@ export class ServicePhotosService {
                         publicId,
                     },
                 )
-                photoNo =+ 1;
                 return this.prisma.servicePhoto.create({
                     data: {
                         url: cloudinaryResult.secure_url,
                         publicId: cloudinaryResult.public_id,
                         type: PhotoType.BEFORE,
                         serviceId: serviceId,
+                    },
+                    select: {
+                        id: true,
+                        publicId: true,
+                        type: true,
                     }
                 })
             });
-            uploadedPhotosData = await Promise.all(uploadPromises);
+            return uploadedPhotosData = await Promise.all(uploadPromises);
+
         } catch (error){
             throw new BadRequestException('Something when wrong uploading the pictures to Cloudinary')
         }
@@ -56,9 +62,9 @@ export class ServicePhotosService {
             'service-photos'
         )
         try {
-            let photoNo = 1
-            const uploadPromises = await files.map(async (file) => {
-                const publicId = `photo${photoNo}$-{serviceId}`;
+            const uploadPromises = await files.map(async (file, index) => {
+                const photoNo = index + 1;
+                const publicId = `photo${photoNo}-${serviceId}`;
                 const cloudinaryResult = await this.cloudinaryService.uploadImage(
                     file,
                     {
@@ -66,7 +72,6 @@ export class ServicePhotosService {
                         publicId,
                     },
                 )
-                photoNo =+ 1;
                 return this.prisma.servicePhoto.create({
                     data: {
                         url: cloudinaryResult.secure_url,

@@ -1,4 +1,4 @@
-import { Controller, HttpCode, HttpStatus, MaxFileSizeValidator, Param, ParseFilePipe, ParseUUIDPipe, Patch, Post, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, HttpCode, HttpStatus, MaxFileSizeValidator, Param, ParseFilePipe, ParseUUIDPipe, Patch, Post, UploadedFiles, UseInterceptors } from '@nestjs/common';
 import { ServicePhotosService } from './service-photos.service';
 import { ApiBody, ApiConsumes, ApiNotFoundResponse, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { FilesInterceptor } from '@nestjs/platform-express';
@@ -30,7 +30,7 @@ export class ServicePhotosController {
     @UseInterceptors(FilesInterceptor('photos', 10))
     uploadBrforePhotos(
         @Param('id', ParseUUIDPipe) id: string,
-        @UploadedFile() files: Express.Multer.File[]) {
+        @UploadedFiles() files: Express.Multer.File[]) {
         return this.servicePhotosService.uploadBeforePhotos(id, files);
     }
 
