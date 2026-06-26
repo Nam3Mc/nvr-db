@@ -28,20 +28,24 @@ export type AggregateService = {
 
 export type ServiceAvgAggregateOutputType = {
   serviceNumber: number | null
+  servicePrice: runtime.Decimal | null
 }
 
 export type ServiceSumAggregateOutputType = {
   serviceNumber: number | null
+  servicePrice: runtime.Decimal | null
 }
 
 export type ServiceMinAggregateOutputType = {
   id: string | null
   serviceNumber: number | null
   status: $Enums.ServiceStatus | null
+  servicePrice: runtime.Decimal | null
   scheduledAt: Date | null
   startedAt: Date | null
   completedAt: Date | null
   certificateExpiresAt: Date | null
+  notes: string | null
   observations: string | null
   clientId: string | null
   createdAt: Date | null
@@ -52,10 +56,12 @@ export type ServiceMaxAggregateOutputType = {
   id: string | null
   serviceNumber: number | null
   status: $Enums.ServiceStatus | null
+  servicePrice: runtime.Decimal | null
   scheduledAt: Date | null
   startedAt: Date | null
   completedAt: Date | null
   certificateExpiresAt: Date | null
+  notes: string | null
   observations: string | null
   clientId: string | null
   createdAt: Date | null
@@ -66,10 +72,12 @@ export type ServiceCountAggregateOutputType = {
   id: number
   serviceNumber: number
   status: number
+  servicePrice: number
   scheduledAt: number
   startedAt: number
   completedAt: number
   certificateExpiresAt: number
+  notes: number
   observations: number
   clientId: number
   createdAt: number
@@ -80,20 +88,24 @@ export type ServiceCountAggregateOutputType = {
 
 export type ServiceAvgAggregateInputType = {
   serviceNumber?: true
+  servicePrice?: true
 }
 
 export type ServiceSumAggregateInputType = {
   serviceNumber?: true
+  servicePrice?: true
 }
 
 export type ServiceMinAggregateInputType = {
   id?: true
   serviceNumber?: true
   status?: true
+  servicePrice?: true
   scheduledAt?: true
   startedAt?: true
   completedAt?: true
   certificateExpiresAt?: true
+  notes?: true
   observations?: true
   clientId?: true
   createdAt?: true
@@ -104,10 +116,12 @@ export type ServiceMaxAggregateInputType = {
   id?: true
   serviceNumber?: true
   status?: true
+  servicePrice?: true
   scheduledAt?: true
   startedAt?: true
   completedAt?: true
   certificateExpiresAt?: true
+  notes?: true
   observations?: true
   clientId?: true
   createdAt?: true
@@ -118,10 +132,12 @@ export type ServiceCountAggregateInputType = {
   id?: true
   serviceNumber?: true
   status?: true
+  servicePrice?: true
   scheduledAt?: true
   startedAt?: true
   completedAt?: true
   certificateExpiresAt?: true
+  notes?: true
   observations?: true
   clientId?: true
   createdAt?: true
@@ -219,10 +235,12 @@ export type ServiceGroupByOutputType = {
   id: string
   serviceNumber: number
   status: $Enums.ServiceStatus
+  servicePrice: runtime.Decimal
   scheduledAt: Date
   startedAt: Date | null
   completedAt: Date | null
   certificateExpiresAt: Date | null
+  notes: string | null
   observations: string | null
   clientId: string
   createdAt: Date
@@ -256,10 +274,12 @@ export type ServiceWhereInput = {
   id?: Prisma.UuidFilter<"Service"> | string
   serviceNumber?: Prisma.IntFilter<"Service"> | number
   status?: Prisma.EnumServiceStatusFilter<"Service"> | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFilter<"Service"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFilter<"Service"> | Date | string
   startedAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
   certificateExpiresAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
+  notes?: Prisma.StringNullableFilter<"Service"> | string | null
   observations?: Prisma.StringNullableFilter<"Service"> | string | null
   clientId?: Prisma.UuidFilter<"Service"> | string
   createdAt?: Prisma.DateTimeFilter<"Service"> | Date | string
@@ -276,10 +296,12 @@ export type ServiceOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   serviceNumber?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
   scheduledAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   certificateExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -299,10 +321,12 @@ export type ServiceWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.ServiceWhereInput[]
   NOT?: Prisma.ServiceWhereInput | Prisma.ServiceWhereInput[]
   status?: Prisma.EnumServiceStatusFilter<"Service"> | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFilter<"Service"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFilter<"Service"> | Date | string
   startedAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
   certificateExpiresAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
+  notes?: Prisma.StringNullableFilter<"Service"> | string | null
   observations?: Prisma.StringNullableFilter<"Service"> | string | null
   clientId?: Prisma.UuidFilter<"Service"> | string
   createdAt?: Prisma.DateTimeFilter<"Service"> | Date | string
@@ -319,10 +343,12 @@ export type ServiceOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   serviceNumber?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
   scheduledAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   completedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   certificateExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
   observations?: Prisma.SortOrderInput | Prisma.SortOrder
   clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -341,10 +367,12 @@ export type ServiceScalarWhereWithAggregatesInput = {
   id?: Prisma.UuidWithAggregatesFilter<"Service"> | string
   serviceNumber?: Prisma.IntWithAggregatesFilter<"Service"> | number
   status?: Prisma.EnumServiceStatusWithAggregatesFilter<"Service"> | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalWithAggregatesFilter<"Service"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeWithAggregatesFilter<"Service"> | Date | string
   startedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Service"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Service"> | Date | string | null
   certificateExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Service"> | Date | string | null
+  notes?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
   observations?: Prisma.StringNullableWithAggregatesFilter<"Service"> | string | null
   clientId?: Prisma.UuidWithAggregatesFilter<"Service"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Service"> | Date | string
@@ -355,10 +383,12 @@ export type ServiceCreateInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -374,10 +404,12 @@ export type ServiceUncheckedCreateInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -392,10 +424,12 @@ export type ServiceUncheckedCreateInput = {
 export type ServiceUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -411,10 +445,12 @@ export type ServiceUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -430,10 +466,12 @@ export type ServiceCreateManyInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -443,10 +481,12 @@ export type ServiceCreateManyInput = {
 export type ServiceUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -456,10 +496,12 @@ export type ServiceUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -480,10 +522,12 @@ export type ServiceCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   serviceNumber?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
   scheduledAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   certificateExpiresAt?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   observations?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -492,16 +536,19 @@ export type ServiceCountOrderByAggregateInput = {
 
 export type ServiceAvgOrderByAggregateInput = {
   serviceNumber?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
 }
 
 export type ServiceMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   serviceNumber?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
   scheduledAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   certificateExpiresAt?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   observations?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -512,10 +559,12 @@ export type ServiceMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   serviceNumber?: Prisma.SortOrder
   status?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
   scheduledAt?: Prisma.SortOrder
   startedAt?: Prisma.SortOrder
   completedAt?: Prisma.SortOrder
   certificateExpiresAt?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
   observations?: Prisma.SortOrder
   clientId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -524,6 +573,7 @@ export type ServiceMinOrderByAggregateInput = {
 
 export type ServiceSumOrderByAggregateInput = {
   serviceNumber?: Prisma.SortOrder
+  servicePrice?: Prisma.SortOrder
 }
 
 export type ServiceScalarRelationFilter = {
@@ -683,10 +733,12 @@ export type ServiceCreateWithoutTechniciansInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -701,10 +753,12 @@ export type ServiceUncheckedCreateWithoutTechniciansInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -743,10 +797,12 @@ export type ServiceScalarWhereInput = {
   id?: Prisma.UuidFilter<"Service"> | string
   serviceNumber?: Prisma.IntFilter<"Service"> | number
   status?: Prisma.EnumServiceStatusFilter<"Service"> | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFilter<"Service"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFilter<"Service"> | Date | string
   startedAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
   completedAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
   certificateExpiresAt?: Prisma.DateTimeNullableFilter<"Service"> | Date | string | null
+  notes?: Prisma.StringNullableFilter<"Service"> | string | null
   observations?: Prisma.StringNullableFilter<"Service"> | string | null
   clientId?: Prisma.UuidFilter<"Service"> | string
   createdAt?: Prisma.DateTimeFilter<"Service"> | Date | string
@@ -757,10 +813,12 @@ export type ServiceCreateWithoutClientInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -775,10 +833,12 @@ export type ServiceUncheckedCreateWithoutClientInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -819,10 +879,12 @@ export type ServiceCreateWithoutActivitiesInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -837,10 +899,12 @@ export type ServiceUncheckedCreateWithoutActivitiesInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -870,10 +934,12 @@ export type ServiceUpdateToOneWithWhereWithoutActivitiesInput = {
 export type ServiceUpdateWithoutActivitiesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -888,10 +954,12 @@ export type ServiceUncheckedUpdateWithoutActivitiesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -906,10 +974,12 @@ export type ServiceCreateWithoutItemsInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -924,10 +994,12 @@ export type ServiceUncheckedCreateWithoutItemsInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -957,10 +1029,12 @@ export type ServiceUpdateToOneWithWhereWithoutItemsInput = {
 export type ServiceUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -975,10 +1049,12 @@ export type ServiceUncheckedUpdateWithoutItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -993,10 +1069,12 @@ export type ServiceCreateWithoutPestsInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1011,10 +1089,12 @@ export type ServiceUncheckedCreateWithoutPestsInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -1044,10 +1124,12 @@ export type ServiceUpdateToOneWithWhereWithoutPestsInput = {
 export type ServiceUpdateWithoutPestsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1062,10 +1144,12 @@ export type ServiceUncheckedUpdateWithoutPestsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1080,10 +1164,12 @@ export type ServiceCreateWithoutPhotosInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1098,10 +1184,12 @@ export type ServiceUncheckedCreateWithoutPhotosInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   clientId: string
   createdAt?: Date | string
@@ -1131,10 +1219,12 @@ export type ServiceUpdateToOneWithWhereWithoutPhotosInput = {
 export type ServiceUpdateWithoutPhotosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1149,10 +1239,12 @@ export type ServiceUncheckedUpdateWithoutPhotosInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1166,10 +1258,12 @@ export type ServiceUncheckedUpdateWithoutPhotosInput = {
 export type ServiceUpdateWithoutTechniciansInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1184,10 +1278,12 @@ export type ServiceUncheckedUpdateWithoutTechniciansInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1202,10 +1298,12 @@ export type ServiceUncheckedUpdateManyWithoutTechniciansInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   clientId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1216,10 +1314,12 @@ export type ServiceCreateManyClientInput = {
   id?: string
   serviceNumber?: number
   status?: $Enums.ServiceStatus
+  servicePrice?: runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt: Date | string
   startedAt?: Date | string | null
   completedAt?: Date | string | null
   certificateExpiresAt?: Date | string | null
+  notes?: string | null
   observations?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1228,10 +1328,12 @@ export type ServiceCreateManyClientInput = {
 export type ServiceUpdateWithoutClientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1246,10 +1348,12 @@ export type ServiceUncheckedUpdateWithoutClientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1264,10 +1368,12 @@ export type ServiceUncheckedUpdateManyWithoutClientInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   serviceNumber?: Prisma.IntFieldUpdateOperationsInput | number
   status?: Prisma.EnumServiceStatusFieldUpdateOperationsInput | $Enums.ServiceStatus
+  servicePrice?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   scheduledAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   startedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   completedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   certificateExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   observations?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1344,10 +1450,12 @@ export type ServiceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   id?: boolean
   serviceNumber?: boolean
   status?: boolean
+  servicePrice?: boolean
   scheduledAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   certificateExpiresAt?: boolean
+  notes?: boolean
   observations?: boolean
   clientId?: boolean
   createdAt?: boolean
@@ -1365,10 +1473,12 @@ export type ServiceSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   id?: boolean
   serviceNumber?: boolean
   status?: boolean
+  servicePrice?: boolean
   scheduledAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   certificateExpiresAt?: boolean
+  notes?: boolean
   observations?: boolean
   clientId?: boolean
   createdAt?: boolean
@@ -1380,10 +1490,12 @@ export type ServiceSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   id?: boolean
   serviceNumber?: boolean
   status?: boolean
+  servicePrice?: boolean
   scheduledAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   certificateExpiresAt?: boolean
+  notes?: boolean
   observations?: boolean
   clientId?: boolean
   createdAt?: boolean
@@ -1395,17 +1507,19 @@ export type ServiceSelectScalar = {
   id?: boolean
   serviceNumber?: boolean
   status?: boolean
+  servicePrice?: boolean
   scheduledAt?: boolean
   startedAt?: boolean
   completedAt?: boolean
   certificateExpiresAt?: boolean
+  notes?: boolean
   observations?: boolean
   clientId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ServiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "serviceNumber" | "status" | "scheduledAt" | "startedAt" | "completedAt" | "certificateExpiresAt" | "observations" | "clientId" | "createdAt" | "updatedAt", ExtArgs["result"]["service"]>
+export type ServiceOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "serviceNumber" | "status" | "servicePrice" | "scheduledAt" | "startedAt" | "completedAt" | "certificateExpiresAt" | "notes" | "observations" | "clientId" | "createdAt" | "updatedAt", ExtArgs["result"]["service"]>
 export type ServiceInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   client?: boolean | Prisma.ClientDefaultArgs<ExtArgs>
   technicians?: boolean | Prisma.Service$techniciansArgs<ExtArgs>
@@ -1436,10 +1550,12 @@ export type $ServicePayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     id: string
     serviceNumber: number
     status: $Enums.ServiceStatus
+    servicePrice: runtime.Decimal
     scheduledAt: Date
     startedAt: Date | null
     completedAt: Date | null
     certificateExpiresAt: Date | null
+    notes: string | null
     observations: string | null
     clientId: string
     createdAt: Date
@@ -1876,10 +1992,12 @@ export interface ServiceFieldRefs {
   readonly id: Prisma.FieldRef<"Service", 'String'>
   readonly serviceNumber: Prisma.FieldRef<"Service", 'Int'>
   readonly status: Prisma.FieldRef<"Service", 'ServiceStatus'>
+  readonly servicePrice: Prisma.FieldRef<"Service", 'Decimal'>
   readonly scheduledAt: Prisma.FieldRef<"Service", 'DateTime'>
   readonly startedAt: Prisma.FieldRef<"Service", 'DateTime'>
   readonly completedAt: Prisma.FieldRef<"Service", 'DateTime'>
   readonly certificateExpiresAt: Prisma.FieldRef<"Service", 'DateTime'>
+  readonly notes: Prisma.FieldRef<"Service", 'String'>
   readonly observations: Prisma.FieldRef<"Service", 'String'>
   readonly clientId: Prisma.FieldRef<"Service", 'String'>
   readonly createdAt: Prisma.FieldRef<"Service", 'DateTime'>

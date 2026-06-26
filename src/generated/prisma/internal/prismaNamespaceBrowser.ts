@@ -137,10 +137,12 @@ export const ServiceScalarFieldEnum = {
   id: 'id',
   serviceNumber: 'serviceNumber',
   status: 'status',
+  servicePrice: 'servicePrice',
   scheduledAt: 'scheduledAt',
   startedAt: 'startedAt',
   completedAt: 'completedAt',
   certificateExpiresAt: 'certificateExpiresAt',
+  notes: 'notes',
   observations: 'observations',
   clientId: 'clientId',
   createdAt: 'createdAt',
@@ -190,8 +192,8 @@ export type ServicePestScalarFieldEnum = (typeof ServicePestScalarFieldEnum)[key
 
 export const ServicePhotoScalarFieldEnum = {
   id: 'id',
-  Url: 'Url',
-  PublicId: 'PublicId',
+  url: 'url',
+  publicId: 'publicId',
   type: 'type',
   serviceId: 'serviceId',
   createdAt: 'createdAt'

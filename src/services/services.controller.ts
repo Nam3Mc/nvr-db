@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ServicesService } from './services.service';
 import { CreateServiceDto } from './dto/create-service.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -13,6 +13,10 @@ export class ServicesController {
     @Post()
     create(@Body() createServiceDto: CreateServiceDto) {
         return this.servicesService.create(createServiceDto);
+    }
 
+    @Get()
+    getServices() {
+        return this.servicesService.allServices();
     }
 }

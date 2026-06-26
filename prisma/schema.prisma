@@ -138,12 +138,14 @@ model Service {
   id            String        @id @default(uuid()) @db.Uuid
   serviceNumber Int           @unique @default(autoincrement())
   status        ServiceStatus @default(SCHEDULED)
+  servicePrice  Decimal       @default(0) @db.Decimal(10, 2)
 
   scheduledAt          DateTime
   startedAt            DateTime?
   completedAt          DateTime?
   certificateExpiresAt DateTime? @db.Date
 
+  notes        String?
   observations String?
 
   clientId String @db.Uuid
@@ -167,7 +169,7 @@ model Activity {
   id   String       @id @default(uuid()) @db.Uuid
   type ActivityType
 
-  measurementUnit    MeasurementUnit?
+  measurementUnit    MeasurementUnit? @default(LITER)
   tankCapacityLiters Int?
   tankStructureType  String?
   tankLocation       TankLocation?
@@ -214,8 +216,8 @@ model ServicePest {
 
 model ServicePhoto {
   id       String    @id @default(uuid()) @db.Uuid
-  Url      String
-  PublicId String
+  url      String
+  publicId String
   type     PhotoType
 
   serviceId String  @db.Uuid

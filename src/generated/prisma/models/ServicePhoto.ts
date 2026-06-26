@@ -26,8 +26,8 @@ export type AggregateServicePhoto = {
 
 export type ServicePhotoMinAggregateOutputType = {
   id: string | null
-  Url: string | null
-  PublicId: string | null
+  url: string | null
+  publicId: string | null
   type: $Enums.PhotoType | null
   serviceId: string | null
   createdAt: Date | null
@@ -35,8 +35,8 @@ export type ServicePhotoMinAggregateOutputType = {
 
 export type ServicePhotoMaxAggregateOutputType = {
   id: string | null
-  Url: string | null
-  PublicId: string | null
+  url: string | null
+  publicId: string | null
   type: $Enums.PhotoType | null
   serviceId: string | null
   createdAt: Date | null
@@ -44,8 +44,8 @@ export type ServicePhotoMaxAggregateOutputType = {
 
 export type ServicePhotoCountAggregateOutputType = {
   id: number
-  Url: number
-  PublicId: number
+  url: number
+  publicId: number
   type: number
   serviceId: number
   createdAt: number
@@ -55,8 +55,8 @@ export type ServicePhotoCountAggregateOutputType = {
 
 export type ServicePhotoMinAggregateInputType = {
   id?: true
-  Url?: true
-  PublicId?: true
+  url?: true
+  publicId?: true
   type?: true
   serviceId?: true
   createdAt?: true
@@ -64,8 +64,8 @@ export type ServicePhotoMinAggregateInputType = {
 
 export type ServicePhotoMaxAggregateInputType = {
   id?: true
-  Url?: true
-  PublicId?: true
+  url?: true
+  publicId?: true
   type?: true
   serviceId?: true
   createdAt?: true
@@ -73,8 +73,8 @@ export type ServicePhotoMaxAggregateInputType = {
 
 export type ServicePhotoCountAggregateInputType = {
   id?: true
-  Url?: true
-  PublicId?: true
+  url?: true
+  publicId?: true
   type?: true
   serviceId?: true
   createdAt?: true
@@ -155,8 +155,8 @@ export type ServicePhotoGroupByArgs<ExtArgs extends runtime.Types.Extensions.Int
 
 export type ServicePhotoGroupByOutputType = {
   id: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   serviceId: string
   createdAt: Date
@@ -185,8 +185,8 @@ export type ServicePhotoWhereInput = {
   OR?: Prisma.ServicePhotoWhereInput[]
   NOT?: Prisma.ServicePhotoWhereInput | Prisma.ServicePhotoWhereInput[]
   id?: Prisma.UuidFilter<"ServicePhoto"> | string
-  Url?: Prisma.StringFilter<"ServicePhoto"> | string
-  PublicId?: Prisma.StringFilter<"ServicePhoto"> | string
+  url?: Prisma.StringFilter<"ServicePhoto"> | string
+  publicId?: Prisma.StringFilter<"ServicePhoto"> | string
   type?: Prisma.EnumPhotoTypeFilter<"ServicePhoto"> | $Enums.PhotoType
   serviceId?: Prisma.UuidFilter<"ServicePhoto"> | string
   createdAt?: Prisma.DateTimeFilter<"ServicePhoto"> | Date | string
@@ -195,8 +195,8 @@ export type ServicePhotoWhereInput = {
 
 export type ServicePhotoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  Url?: Prisma.SortOrder
-  PublicId?: Prisma.SortOrder
+  url?: Prisma.SortOrder
+  publicId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -208,8 +208,8 @@ export type ServicePhotoWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.ServicePhotoWhereInput | Prisma.ServicePhotoWhereInput[]
   OR?: Prisma.ServicePhotoWhereInput[]
   NOT?: Prisma.ServicePhotoWhereInput | Prisma.ServicePhotoWhereInput[]
-  Url?: Prisma.StringFilter<"ServicePhoto"> | string
-  PublicId?: Prisma.StringFilter<"ServicePhoto"> | string
+  url?: Prisma.StringFilter<"ServicePhoto"> | string
+  publicId?: Prisma.StringFilter<"ServicePhoto"> | string
   type?: Prisma.EnumPhotoTypeFilter<"ServicePhoto"> | $Enums.PhotoType
   serviceId?: Prisma.UuidFilter<"ServicePhoto"> | string
   createdAt?: Prisma.DateTimeFilter<"ServicePhoto"> | Date | string
@@ -218,8 +218,8 @@ export type ServicePhotoWhereUniqueInput = Prisma.AtLeast<{
 
 export type ServicePhotoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  Url?: Prisma.SortOrder
-  PublicId?: Prisma.SortOrder
+  url?: Prisma.SortOrder
+  publicId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -233,8 +233,8 @@ export type ServicePhotoScalarWhereWithAggregatesInput = {
   OR?: Prisma.ServicePhotoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ServicePhotoScalarWhereWithAggregatesInput | Prisma.ServicePhotoScalarWhereWithAggregatesInput[]
   id?: Prisma.UuidWithAggregatesFilter<"ServicePhoto"> | string
-  Url?: Prisma.StringWithAggregatesFilter<"ServicePhoto"> | string
-  PublicId?: Prisma.StringWithAggregatesFilter<"ServicePhoto"> | string
+  url?: Prisma.StringWithAggregatesFilter<"ServicePhoto"> | string
+  publicId?: Prisma.StringWithAggregatesFilter<"ServicePhoto"> | string
   type?: Prisma.EnumPhotoTypeWithAggregatesFilter<"ServicePhoto"> | $Enums.PhotoType
   serviceId?: Prisma.UuidWithAggregatesFilter<"ServicePhoto"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ServicePhoto"> | Date | string
@@ -242,8 +242,8 @@ export type ServicePhotoScalarWhereWithAggregatesInput = {
 
 export type ServicePhotoCreateInput = {
   id?: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   createdAt?: Date | string
   service: Prisma.ServiceCreateNestedOneWithoutPhotosInput
@@ -251,8 +251,8 @@ export type ServicePhotoCreateInput = {
 
 export type ServicePhotoUncheckedCreateInput = {
   id?: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   serviceId: string
   createdAt?: Date | string
@@ -260,8 +260,8 @@ export type ServicePhotoUncheckedCreateInput = {
 
 export type ServicePhotoUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   service?: Prisma.ServiceUpdateOneRequiredWithoutPhotosNestedInput
@@ -269,8 +269,8 @@ export type ServicePhotoUpdateInput = {
 
 export type ServicePhotoUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -278,8 +278,8 @@ export type ServicePhotoUncheckedUpdateInput = {
 
 export type ServicePhotoCreateManyInput = {
   id?: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   serviceId: string
   createdAt?: Date | string
@@ -287,16 +287,16 @@ export type ServicePhotoCreateManyInput = {
 
 export type ServicePhotoUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePhotoUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   serviceId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -314,8 +314,8 @@ export type ServicePhotoOrderByRelationAggregateInput = {
 
 export type ServicePhotoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  Url?: Prisma.SortOrder
-  PublicId?: Prisma.SortOrder
+  url?: Prisma.SortOrder
+  publicId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -323,8 +323,8 @@ export type ServicePhotoCountOrderByAggregateInput = {
 
 export type ServicePhotoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  Url?: Prisma.SortOrder
-  PublicId?: Prisma.SortOrder
+  url?: Prisma.SortOrder
+  publicId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -332,8 +332,8 @@ export type ServicePhotoMaxOrderByAggregateInput = {
 
 export type ServicePhotoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  Url?: Prisma.SortOrder
-  PublicId?: Prisma.SortOrder
+  url?: Prisma.SortOrder
+  publicId?: Prisma.SortOrder
   type?: Prisma.SortOrder
   serviceId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -387,16 +387,16 @@ export type EnumPhotoTypeFieldUpdateOperationsInput = {
 
 export type ServicePhotoCreateWithoutServiceInput = {
   id?: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   createdAt?: Date | string
 }
 
 export type ServicePhotoUncheckedCreateWithoutServiceInput = {
   id?: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   createdAt?: Date | string
 }
@@ -432,8 +432,8 @@ export type ServicePhotoScalarWhereInput = {
   OR?: Prisma.ServicePhotoScalarWhereInput[]
   NOT?: Prisma.ServicePhotoScalarWhereInput | Prisma.ServicePhotoScalarWhereInput[]
   id?: Prisma.UuidFilter<"ServicePhoto"> | string
-  Url?: Prisma.StringFilter<"ServicePhoto"> | string
-  PublicId?: Prisma.StringFilter<"ServicePhoto"> | string
+  url?: Prisma.StringFilter<"ServicePhoto"> | string
+  publicId?: Prisma.StringFilter<"ServicePhoto"> | string
   type?: Prisma.EnumPhotoTypeFilter<"ServicePhoto"> | $Enums.PhotoType
   serviceId?: Prisma.UuidFilter<"ServicePhoto"> | string
   createdAt?: Prisma.DateTimeFilter<"ServicePhoto"> | Date | string
@@ -441,32 +441,32 @@ export type ServicePhotoScalarWhereInput = {
 
 export type ServicePhotoCreateManyServiceInput = {
   id?: string
-  Url: string
-  PublicId: string
+  url: string
+  publicId: string
   type: $Enums.PhotoType
   createdAt?: Date | string
 }
 
 export type ServicePhotoUpdateWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePhotoUncheckedUpdateWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ServicePhotoUncheckedUpdateManyWithoutServiceInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  Url?: Prisma.StringFieldUpdateOperationsInput | string
-  PublicId?: Prisma.StringFieldUpdateOperationsInput | string
+  url?: Prisma.StringFieldUpdateOperationsInput | string
+  publicId?: Prisma.StringFieldUpdateOperationsInput | string
   type?: Prisma.EnumPhotoTypeFieldUpdateOperationsInput | $Enums.PhotoType
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -475,8 +475,8 @@ export type ServicePhotoUncheckedUpdateManyWithoutServiceInput = {
 
 export type ServicePhotoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  Url?: boolean
-  PublicId?: boolean
+  url?: boolean
+  publicId?: boolean
   type?: boolean
   serviceId?: boolean
   createdAt?: boolean
@@ -485,8 +485,8 @@ export type ServicePhotoSelect<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type ServicePhotoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  Url?: boolean
-  PublicId?: boolean
+  url?: boolean
+  publicId?: boolean
   type?: boolean
   serviceId?: boolean
   createdAt?: boolean
@@ -495,8 +495,8 @@ export type ServicePhotoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.
 
 export type ServicePhotoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  Url?: boolean
-  PublicId?: boolean
+  url?: boolean
+  publicId?: boolean
   type?: boolean
   serviceId?: boolean
   createdAt?: boolean
@@ -505,14 +505,14 @@ export type ServicePhotoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.
 
 export type ServicePhotoSelectScalar = {
   id?: boolean
-  Url?: boolean
-  PublicId?: boolean
+  url?: boolean
+  publicId?: boolean
   type?: boolean
   serviceId?: boolean
   createdAt?: boolean
 }
 
-export type ServicePhotoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "Url" | "PublicId" | "type" | "serviceId" | "createdAt", ExtArgs["result"]["servicePhoto"]>
+export type ServicePhotoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "url" | "publicId" | "type" | "serviceId" | "createdAt", ExtArgs["result"]["servicePhoto"]>
 export type ServicePhotoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   service?: boolean | Prisma.ServiceDefaultArgs<ExtArgs>
 }
@@ -530,8 +530,8 @@ export type $ServicePhotoPayload<ExtArgs extends runtime.Types.Extensions.Intern
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
-    Url: string
-    PublicId: string
+    url: string
+    publicId: string
     type: $Enums.PhotoType
     serviceId: string
     createdAt: Date
@@ -960,8 +960,8 @@ export interface Prisma__ServicePhotoClient<T, Null = never, ExtArgs extends run
  */
 export interface ServicePhotoFieldRefs {
   readonly id: Prisma.FieldRef<"ServicePhoto", 'String'>
-  readonly Url: Prisma.FieldRef<"ServicePhoto", 'String'>
-  readonly PublicId: Prisma.FieldRef<"ServicePhoto", 'String'>
+  readonly url: Prisma.FieldRef<"ServicePhoto", 'String'>
+  readonly publicId: Prisma.FieldRef<"ServicePhoto", 'String'>
   readonly type: Prisma.FieldRef<"ServicePhoto", 'PhotoType'>
   readonly serviceId: Prisma.FieldRef<"ServicePhoto", 'String'>
   readonly createdAt: Prisma.FieldRef<"ServicePhoto", 'DateTime'>

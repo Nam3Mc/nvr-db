@@ -4,7 +4,9 @@ import {
     ArrayUnique,
     IsArray,
     IsDateString,
+    IsNumber,
     IsOptional,
+    IsPositive,
     IsString,
     IsUUID,
     MaxLength,
@@ -37,6 +39,14 @@ export class CreateServiceDto {
     @IsDateString()
     scheduledAt: string;
 
+    @ApiProperty({
+        example: 450000,
+        description: 'Service Price',
+    })
+    @IsNumber({maxDecimalPlaces: 2})
+    @IsPositive()
+    servicePrice: number;
+
     @ApiPropertyOptional({
         example: 'Client requested morning service. Bring rodent traps.',
         description: 'General service observations',
@@ -44,7 +54,7 @@ export class CreateServiceDto {
     @IsOptional()
     @IsString()
     @MaxLength(1000)
-    observations?: string;
+    notes?: string;
 
     @ApiPropertyOptional({
         example: '2027-06-28',

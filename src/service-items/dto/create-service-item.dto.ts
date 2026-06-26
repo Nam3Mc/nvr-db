@@ -4,12 +4,6 @@ import { IsEnum, IsNumber, IsUUID, Min } from 'class-validator';
 import { ApplicationMethod, MeasurementUnit } from 'src/generated/prisma/enums';
 
 export class CreateServiceItemDto {
-    @ApiProperty({
-        example: 'b8f21b0c-91ec-4f17-b92f-0cb3b3f01311',
-        description: 'Service ID where the item will be used',
-    })
-    @IsUUID()
-    serviceId: string;
 
     @ApiProperty({
         example: 'd6c5f7d9-768b-4e19-a1f3-dff8d82c6f91',

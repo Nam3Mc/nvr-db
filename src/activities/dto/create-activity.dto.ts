@@ -4,19 +4,12 @@ import {
     IsInt,
     IsOptional,
     IsString,
-    IsUUID,
     MaxLength,
     Min,
 } from 'class-validator';
-import { ActivityType, MeasurementUnit, TankLocation } from 'src/generated/prisma/enums';
+import { ActivityType, TankLocation } from 'src/generated/prisma/enums';
 
 export class CreateActivityDto {
-    @ApiProperty({
-        example: 'b8f21b0c-91ec-4f17-b92f-0cb3b3f01311',
-        description: 'Service ID where the activity belongs',
-    })
-    @IsUUID()
-    serviceId: string;
 
     @ApiProperty({
         enum: ActivityType,
@@ -25,15 +18,6 @@ export class CreateActivityDto {
     })
     @IsEnum(ActivityType)
     type: ActivityType;
-
-    @ApiPropertyOptional({
-        enum: MeasurementUnit,
-        example: MeasurementUnit.LITER,
-        description: 'Measurement unit used in the activity',
-    })
-    @IsOptional()
-    @IsEnum(MeasurementUnit)
-    measurementUnit?: MeasurementUnit;
 
     @ApiPropertyOptional({
         example: 1000,

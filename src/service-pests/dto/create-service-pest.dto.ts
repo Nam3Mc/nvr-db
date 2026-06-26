@@ -1,14 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsEnum, IsOptional, IsUUID } from 'class-validator';
+import { IsEnum, IsOptional } from 'class-validator';
 import { InfestationLevel, PestType } from 'src/generated/prisma/enums';
 
 export class CreateServicePestDto {
-    @ApiProperty({
-        example: 'b8f21b0c-91ec-4f17-b92f-0cb3b3f01311',
-        description: 'Service ID where the pest record belongs',
-    })
-    @IsUUID()
-    serviceId: string;
 
     @ApiProperty({
         enum: PestType,
